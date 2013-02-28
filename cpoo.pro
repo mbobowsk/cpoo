@@ -9,3 +9,4 @@ SOURCES += main.cpp \
 HEADERS += mainwindow.h \
     controller.h
 FORMS += mainwindow.ui
+RESOURCES += icons.qrc

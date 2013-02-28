@@ -19,6 +19,15 @@ protected:
 
 private:
     Ui::MainWindow *ui;
+    Controller* controller;
+    QImage* sourceImage;
+    QImage* resultImage;
+
+public slots:
+    void openImage();
+    void saveImage();
+    void runAlgorithm();
+    void about();
 };
 
 #endif // MAINWINDOW_H
