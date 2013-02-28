@@ -97,5 +97,5 @@ void MainWindow::runAlgorithm(){
 
 void MainWindow::about(){
     QMessageBox::about(this, tr("O Programie"),
-                       tr("<p>Oglna i adaptacyjna filtracja medianowa</p>\nProjekt w ramach CPOO 2013<p>\n Micha Bobowski i Andrzej Dudziec"));
+                       tr("<p>Ogólna i adaptacyjna filtracja medianowa</p>\nProjekt w ramach CPOO 2013<p>\n Michał Bobowski i Andrzej Dudziec"));
 }
