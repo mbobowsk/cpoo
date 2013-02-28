@@ -30,9 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete controller;
-    delete sourceImage;
-    delete resultImage;
+
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -48,7 +46,7 @@ void MainWindow::changeEvent(QEvent *e)
 }
 
 void MainWindow::openImage(){
-    QString path = QFileDialog::getOpenFileName(this, tr("Otwrz obrazek"), ".", tr("Images (*.bmp *.dib *.jpeg *.jpg *.jpe *.jp2 *.png *.pbm *.pgm *.ppm *.sr *.ras *.tiff *.tif)"));
+    QString path = QFileDialog::getOpenFileName(this, tr("Otwórz obrazek"), ".", tr("Images (*.bmp *.dib *.jpeg *.jpg *.jpe *.jp2 *.png *.pbm *.pgm *.ppm *.sr *.ras *.tiff *.tif)"));
 
     if (!path.isEmpty()){
         sourceImage = new QImage(path);
@@ -67,7 +65,7 @@ void MainWindow::saveImage(){
         if ( !filePath.isNull() ) {
             if (!resultImage->save(filePath))
             {
-                QMessageBox::critical(this, tr("Problem przy zapisie"), tr("Wystpi problem podczas zapisywania.\nObrazek nie zosta zapisany."));
+                QMessageBox::critical(this, tr("Problem przy zapisie"), tr("Wystąpił problem podczas zapisywania.\nObrazek nie został zapisany."));
             }
         }
     }
@@ -84,7 +82,7 @@ void MainWindow::runAlgorithm(){
             break;
         }
         if (resultImage == NULL){
-            QMessageBox::critical(this, tr("Problem przy filtracji"), tr("Wystpi problem podczas filtrowania."));
+            QMessageBox::critical(this, tr("Problem przy filtracji"), tr("Wystąpił problem podczas filtrowania."));
             return;
         }
         ui->resultImageLabel->resize(resultImage->width(), resultImage->height());
@@ -97,5 +95,5 @@ void MainWindow::runAlgorithm(){
 
 void MainWindow::about(){
     QMessageBox::about(this, tr("O Programie"),
-                       tr("<p>Oglna i adaptacyjna filtracja medianowa</p>\nProjekt w ramach CPOO 2013<p>\n Micha Bobowski i Andrzej Dudziec"));
+                       tr("<p>Ogólna i adaptacyjna filtracja medianowa</p>\nProjekt w ramach CPOO 2013<p>\n Michał Bobowski i Andrzej Dudziec"));
 }
