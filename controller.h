@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include <QImage>
+#include <vector>
 
 /** Klasa kontrolera */
 class Controller
@@ -14,6 +15,8 @@ public:
 
 private:
     static bool sortRgb(QRgb a, QRgb b);
+    // Oblicza sumę odległości piksela o podanym indeksie
+    int countDst(std::vector<unsigned>& pixels, int index);
 };
 
 #endif // CONTROLLER_H
