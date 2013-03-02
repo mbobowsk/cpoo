@@ -25,18 +25,7 @@ QImage* Controller::median(QImage *oldImg) {
     // jak również połowa rozmiaru okna analizy
     int border = size/2;
     // Skopiowanie pikseli z granicy
-    for ( int x = 0; x != border; ++x ) {
-        for ( int y = 0; y !=height; ++y ) {
-            newImg->setPixel(x,y,oldImg->pixel(x,y));
-            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
-        }
-    }
-    for ( int y = 0; y != border; ++y ) {
-        for ( int x = 0; x != width; ++x ) {
-            newImg->setPixel(x,y,oldImg->pixel(x,y));
-            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
-        }
-    }
+    fillBorders(oldImg,newImg,border);
 
     for ( int x = border; x != width-border; ++x ) {
         for ( int y = border; y != height-border; ++y ) {
@@ -66,8 +55,34 @@ QImage* Controller::median(QImage *oldImg) {
 
 // Adaptacyjna filtracja medianowa
 QImage* Controller::adaptMedian(QImage *oldImg) {
-    qDebug()<<"mediana adaptacyjna";
-    return NULL;
+    if ( oldImg->isGrayscale() ) {
+        qDebug() << "Grayscale";
+        return NULL;
+    }
+
+    QImage* newImg = new QImage(oldImg->size(),oldImg->format());
+    // Wysokość i szerokość obrazka
+    int height = oldImg->height();
+    int width = oldImg->width();
+    // Skopiowanie pikseli z granicy
+    fillBorders(oldImg,newImg,1);
+
+    for ( int x = border; x != width-border; ++x ) {
+        for ( int y = border; y != height-border; ++y ) {
+            // Okno analizy
+            std::vector<QRgb> pixels;
+            for ( int i = x-border; i <= x+border; ++i ) {
+                for ( int j = y-border; j <= y+border; ++j ) {
+                    pixels.push_back(oldImg->pixel(i,j));
+                }
+            }
+            // Wartości sumy odległości od pozostałych pikseli
+            std::vector<int> distance;
+            for ( unsigned i = 0; i != pixels.size(); ++i )
+                distance.push_back(countDst(pixels,i));
+        }
+    }
+    return newImg;
 }
 
 int Controller::countDst(std::vector<unsigned>& pixels, int index) {
@@ -83,4 +98,19 @@ int Controller::countDst(std::vector<unsigned>& pixels, int index) {
     return ret;
 }
 
-
+void Controller::fillBorders(QImage *oldImg, QImage *newImg, int border) {
+    int height = oldImg->height();
+    int width = oldImg->width();
+    for ( int x = 0; x != border; ++x ) {
+        for ( int y = 0; y !=height; ++y ) {
+            newImg->setPixel(x,y,oldImg->pixel(x,y));
+            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
+        }
+    }
+    for ( int y = 0; y != border; ++y ) {
+        for ( int x = 0; x != width; ++x ) {
+            newImg->setPixel(x,y,oldImg->pixel(x,y));
+            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
+        }
+    }
+}

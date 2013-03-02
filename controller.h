@@ -17,6 +17,8 @@ private:
     static bool sortRgb(QRgb a, QRgb b);
     // Oblicza sumę odległości piksela o podanym indeksie
     int countDst(std::vector<unsigned>& pixels, int index);
+    // Wypełnia granice nowego obrazka pikselami ze starego obrazka
+    void fillBorders(QImage *oldImg, QImage *newImg, int border);
 };
 
 #endif // CONTROLLER_H

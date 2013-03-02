@@ -32,8 +32,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>253</width>
-            <height>224</height>
+            <width>251</width>
+            <height>218</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">
@@ -68,7 +68,7 @@
             </property>
             <item>
              <property name="text">
-              <string>Mediana ogólna</string>
+              <string>Mediana wektorowa</string>
              </property>
             </item>
             <item>
@@ -97,8 +97,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>283</width>
-            <height>224</height>
+            <width>281</width>
+            <height>220</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -175,7 +175,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>25</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlik">
@@ -282,8 +282,8 @@
      <y>337</y>
     </hint>
     <hint type="destinationlabel">
-     <x>299</x>
-     <y>215</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>
