@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Feb 28 15:35:20 2013
+** Created: Sun Mar 3 18:37:33 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -116,7 +116,7 @@ public:
         originalScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 253, 224));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 251, 218));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -168,7 +168,7 @@ public:
         resultScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 283, 224));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 281, 220));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents_2);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -226,7 +226,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 25));
+        menuBar->setGeometry(QRect(0, 0, 600, 27));
         menuPlik = new QMenu(menuBar);
         menuPlik->setObjectName(QString::fromUtf8("menuPlik"));
         menuPomoc = new QMenu(menuBar);
@@ -277,7 +277,7 @@ public:
         algorithmLabel->setText(QApplication::translate("MainWindow", "Algorytm: ", 0, QApplication::UnicodeUTF8));
         algorithmsCombo->clear();
         algorithmsCombo->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Mediana og\303\263lna", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Mediana wektorowa", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Mediana adaptacyjna", 0, QApplication::UnicodeUTF8)
         );
         resultImageLabel->setText(QString());
