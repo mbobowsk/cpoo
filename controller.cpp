@@ -66,7 +66,8 @@ QImage* Controller::adaptMedian(QImage *oldImg) {
     int width = oldImg->width();
     // Skopiowanie pikseli z granicy
     fillBorders(oldImg,newImg,1);
-
+    int size = 3;
+    int border = size/2;
     for ( int x = border; x != width-border; ++x ) {
         for ( int y = border; y != height-border; ++y ) {
             // Okno analizy
