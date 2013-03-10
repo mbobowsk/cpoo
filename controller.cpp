@@ -47,8 +47,6 @@ QImage* Controller::median(QImage *oldImg) {
                     lowIndex = i;
             }
             // Zapis 'medianowego' piksela do nowego obrazka
-            //          qDebug()<<"Low index"<<lowIndex;
-            //          qDebug()<<"Low value"<<pixels[lowIndex];
             newImg->setPixel(x,y,pixels[lowIndex]);
         }
     }    
@@ -83,8 +81,9 @@ QRgb Controller::adaptivePixel(QImage *original, int x, int y, int windowSize, i
     std::list<QRgb> pixels;
     for ( int i = x-(windowSize/2); i <= x+(windowSize/2); ++i ) {
         for ( int j = y-(windowSize/2); j <= y+(windowSize/2); ++j ) {
-            if (i < 0 || i == original->width() || y < 0 || y == original->height())
+            if (i < 0 || i >= original->width() || j < 0 || j >= original->height()){
                 continue;
+            }
             pixels.push_back(original->pixel(i,j));
         }
     }
