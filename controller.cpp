@@ -26,15 +26,15 @@ QImage* Controller::median(QImage *oldImg) {
     // Liczba pikseli na obwodzie nie brana pod uwagę
     // jak również połowa rozmiaru okna analizy
     int border = size/2;
-    // Skopiowanie pikseli z granicy
-    fillBorders(oldImg,newImg,border);
 
-    for ( int x = border; x != width-border; ++x ) {
-        for ( int y = border; y != height-border; ++y ) {
+    for ( int x = 0; x != width; ++x ) {
+        for ( int y = 0; y != height; ++y ) {
             // Okno analizy
             std::vector<QRgb> pixels;
             for ( int i = x-border; i <= x+border; ++i ) {
                 for ( int j = y-border; j <= y+border; ++j ) {
+                    if ( i < 0 || j < 0 || i >= width || j >= height )
+                        continue;
                     pixels.push_back(oldImg->pixel(i,j));
                 }
             }
@@ -161,21 +161,4 @@ double Controller::countLength(QRgb pixel) {
                  qRed(pixel)*qRed(pixel) +
                  qGreen(pixel)*qGreen(pixel) );
 
-}
-
-void Controller::fillBorders(QImage *oldImg, QImage *newImg, int border) {
-    int height = oldImg->height();
-    int width = oldImg->width();
-    for ( int x = 0; x != border; ++x ) {
-        for ( int y = 0; y !=height; ++y ) {
-            newImg->setPixel(x,y,oldImg->pixel(x,y));
-            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
-        }
-    }
-    for ( int y = 0; y != border; ++y ) {
-        for ( int x = 0; x != width; ++x ) {
-            newImg->setPixel(x,y,oldImg->pixel(x,y));
-            newImg->setPixel(height-x-1,height-y-1,oldImg->pixel(height-x-1,width-y-1));
-        }
-    }
 }
