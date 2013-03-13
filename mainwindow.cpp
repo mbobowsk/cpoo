@@ -54,6 +54,7 @@ void MainWindow::openImage(){
         ui->originalImageLabel->setPixmap(QPixmap::fromImage(*sourceImage));
 
         ui->originalImageLabel->show();
+        ui->resultImageLabel->setPixmap(QPixmap());
         ui->runAlgorithmButton->setEnabled(true);
         ui->actionRunAlgorithm->setEnabled(true);
     }

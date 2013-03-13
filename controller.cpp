@@ -11,8 +11,10 @@ Controller::Controller()
 // Filtracja medianowa zwykła
 QImage* Controller::median(QImage *oldImg) {
     if ( oldImg->isGrayscale() ) {
+        // TODO: remove debug/////////////////////////////////////////////////////
         qDebug() << "Grayscale";
-        return NULL;
+        QImage tmp = oldImg->convertToFormat(QImage::Format_RGB32);
+        oldImg = &tmp;
     }
 
     QImage* newImg = new QImage(oldImg->size(),oldImg->format());
@@ -56,8 +58,10 @@ QImage* Controller::median(QImage *oldImg) {
 // Adaptacyjna filtracja medianowa
 QImage* Controller::adaptMedian(QImage *oldImg) {
     if ( oldImg->isGrayscale() ) {
+        // TODO: remove debug/////////////////////////////////////////////////////
         qDebug() << "Grayscale";
-        return NULL;
+        QImage tmp = oldImg->convertToFormat(QImage::Format_RGB32);
+        oldImg = &tmp;
     }
 
     QImage* newImg = new QImage(oldImg->size(),oldImg->format());
