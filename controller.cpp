@@ -90,19 +90,27 @@ QRgb Controller::adaptivePixel(QImage *original, int x, int y, int windowSize, i
     // Szukaj min / max / median
     QRgb fmin, fmed, fmax, forig;
     pixels.sort(adaptiveComparator);
+
     std::list<QRgb>::iterator it = pixels.begin();
     fmin = *it;
-    std::advance(it, (pixels.size()/2 + 1));
-    fmed = *it;
-    std::advance(it, pixels.size());
+
+    for (int i = 0; it != pixels.end(); it++, i++ ) {
+        if (i == (pixels.size()/2)){
+            fmed = *it;
+            break;
+        }
+    }
+
+    it = pixels.end();
+    it--;
     fmax = *it;
 
     forig = original->pixel(x, y);
 
     // Pierwszy warunek - czy mediana jest różna od skrajności
-    if ((qRed(fmin) + qBlue(fmin) + qGreen(fmin))/3 < (qRed(fmed) + qBlue(fmed) + qGreen(fmed))/3 && (qRed(fmed) + qBlue(fmed) + qGreen(fmed))/3 < (qRed(fmax) + qBlue(fmax) + qGreen(fmax))/3){
+    if (countLength(fmin) < countLength(fmed) && countLength(fmed) < countLength(fmax)){
         // Drugi warunek - czy oryginalny jest różny od skrajności
-        if((qRed(fmin) + qBlue(fmin) + qGreen(fmin))/3 < (qRed(forig) + qBlue(forig) + qGreen(forig))/3 && (qRed(forig) + qBlue(forig) + qGreen(forig))/3 < (qRed(fmax) + qBlue(fmax) + qGreen(fmax))/3){
+        if(countLength(fmin) < countLength(forig) && countLength(forig) < countLength(fmax)){
             return forig;
         }
         else
@@ -125,9 +133,9 @@ QRgb Controller::adaptivePixel(QImage *original, int x, int y, int windowSize, i
 }
 
 bool Controller::adaptiveComparator(const QRgb first, const QRgb second){
-    int firstGray = (qRed(first) + qBlue(first) + qGreen(first))/3;
-    int secondGray = (qRed(second) + qBlue(second) + qGreen(second))/3;
-    return (firstGray < secondGray);
+    double firstLength = countLength(first);
+    double secondLength = countLength(second);
+    return (firstLength < secondLength);
 }
 
 int Controller::countDst(std::vector<unsigned>& pixels, int index) {
@@ -143,12 +151,11 @@ int Controller::countDst(std::vector<unsigned>& pixels, int index) {
     return ret;
 }
 
-// TODO remove, not used
 double Controller::countLength(QRgb pixel) {
 
-    return sqrt(pow(qRed(pixel)-qRed(pixel),2) +
-                pow(qBlue(pixel)-qBlue(pixel),2) +
-                pow(qGreen(pixel)-qGreen(pixel),2));
+    return sqrt( qBlue(pixel)*qBlue(pixel) +
+                 qRed(pixel)*qRed(pixel) +
+                 qGreen(pixel)*qGreen(pixel) );
 
 }
 
