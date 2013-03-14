@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 14 18:41:27 2013
+** Created: Thu Mar 14 21:35:59 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -326,7 +326,7 @@ public:
         algorithmLabel->setText(QApplication::translate("MainWindow", "Algorytm: ", 0, QApplication::UnicodeUTF8));
         algorithmsCombo->clear();
         algorithmsCombo->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Mediana wektorowa", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Mediana uog\303\263lniona", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Mediana adaptacyjna", 0, QApplication::UnicodeUTF8)
         );
         resultImageLabel->setText(QString());

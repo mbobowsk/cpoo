@@ -170,7 +170,7 @@
     <item>
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string>Parametry</string>
+       <string>Parametry:</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
