@@ -22,12 +22,14 @@ private:
     Controller* controller;
     QImage* sourceImage;
     QImage* resultImage;
+    int getWindowSize();
 
 public slots:
     void openImage();
     void saveImage();
     void runAlgorithm();
     void about();
+    void algorithmChanged();
 };
 
 #endif // MAINWINDOW_H

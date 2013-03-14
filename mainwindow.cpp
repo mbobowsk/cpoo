@@ -20,11 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->originalScrollArea->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->resultScrollArea->verticalScrollBar(), SLOT(setValue(int)));
     connect(ui->resultScrollArea->horizontalScrollBar(), SIGNAL(valueChanged(int)), ui->originalScrollArea->horizontalScrollBar(), SLOT(setValue(int)));
     connect(ui->resultScrollArea->verticalScrollBar(), SIGNAL(valueChanged(int)), ui->originalScrollArea->verticalScrollBar(), SLOT(setValue(int)));
+    connect(ui->algorithmsCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(algorithmChanged()));
 
     ui->saveButton->setEnabled(false);
     ui->runAlgorithmButton->setEnabled(false);
     ui->actionSaveResult->setEnabled(false);
     ui->actionRunAlgorithm->setEnabled(false);
+    ui->parameterPSpinner->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -76,10 +78,10 @@ void MainWindow::runAlgorithm(){
     if (ui->algorithmsCombo->currentIndex() != -1){
         switch (ui->algorithmsCombo->currentIndex()) {
         case 0:
-            resultImage = controller->median(sourceImage);
+            resultImage = controller->median(sourceImage, getWindowSize(), ui->parameterPSpinner->value());
             break;
         case 1:
-            resultImage = controller->adaptMedian(sourceImage);
+            resultImage = controller->adaptMedian(sourceImage, getWindowSize());
             break;
         }
         if (resultImage == NULL){
@@ -97,4 +99,21 @@ void MainWindow::runAlgorithm(){
 void MainWindow::about(){
     QMessageBox::about(this, tr("O Programie"),
                        tr("<p>Ogólna i adaptacyjna filtracja medianowa</p>\nProjekt w ramach CPOO 2013<p>\n Michał Bobowski i Andrzej Dudziec"));
+}
+
+void MainWindow::algorithmChanged(){
+    if (ui->algorithmsCombo->currentIndex() != -1){
+        switch (ui->algorithmsCombo->currentIndex()) {
+        case 0:
+            ui->parameterPSpinner->setEnabled(false);
+            break;
+        case 1:
+            ui->parameterPSpinner->setEnabled(true);
+            break;
+        }
+    }
+}
+
+int MainWindow::getWindowSize(){
+    return ui->windowSizeCombo->currentIndex() * 2 + 3;
 }

@@ -9,7 +9,7 @@ Controller::Controller()
 }
 
 // Filtracja medianowa zwykła
-QImage* Controller::median(QImage *oldImg) {
+QImage* Controller::median(QImage *oldImg, int windowSize, double parameter) {
     if ( oldImg->isGrayscale() ) {
         // TODO: remove debug/////////////////////////////////////////////////////
         qDebug() << "Grayscale";
@@ -22,7 +22,7 @@ QImage* Controller::median(QImage *oldImg) {
     int height = oldImg->height();
     int width = oldImg->width();
     // sparametryzować
-    int size = 3;
+    int size = windowSize;
     // Liczba pikseli na obwodzie nie brana pod uwagę
     // jak również połowa rozmiaru okna analizy
     int border = size/2;
@@ -56,7 +56,7 @@ QImage* Controller::median(QImage *oldImg) {
 }
 
 // Adaptacyjna filtracja medianowa
-QImage* Controller::adaptMedian(QImage *oldImg) {
+QImage* Controller::adaptMedian(QImage *oldImg, int windowSize) {
     if ( oldImg->isGrayscale() ) {
         // TODO: remove debug/////////////////////////////////////////////////////
         qDebug() << "Grayscale";
@@ -69,7 +69,6 @@ QImage* Controller::adaptMedian(QImage *oldImg) {
     int height = oldImg->height();
     int width = oldImg->width();
     // sparametryzować
-    int windowSize = 3;
     int maxWindowSize = 11;
 
     for ( int x = 0; x < width; ++x ) {

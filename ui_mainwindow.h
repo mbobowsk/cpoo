@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun Mar 3 18:37:33 2013
+** Created: Thu Mar 14 18:41:27 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,8 +15,10 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
+#include <QtGui/QDoubleSpinBox>
 #include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
+#include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -63,6 +65,14 @@ public:
     QPushButton *runAlgorithmButton;
     QPushButton *openImage;
     QPushButton *saveButton;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_3;
+    QGroupBox *groupBox_2;
+    QGridLayout *gridLayout_3;
+    QComboBox *windowSizeCombo;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_4;
+    QDoubleSpinBox *parameterPSpinner;
     QMenuBar *menuBar;
     QMenu *menuPlik;
     QMenu *menuPomoc;
@@ -73,7 +83,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(600, 400);
+        MainWindow->resize(739, 400);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/image.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -116,7 +126,7 @@ public:
         originalScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 251, 218));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 250, 224));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -168,7 +178,7 @@ public:
         resultScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 281, 220));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 283, 224));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents_2);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -223,10 +233,49 @@ public:
 
         horizontalLayout_5->addWidget(rightArea);
 
+        groupBox = new QGroupBox(centralWidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        verticalLayout_3 = new QVBoxLayout(groupBox);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        groupBox_2 = new QGroupBox(groupBox);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        gridLayout_3 = new QGridLayout(groupBox_2);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        windowSizeCombo = new QComboBox(groupBox_2);
+        windowSizeCombo->setObjectName(QString::fromUtf8("windowSizeCombo"));
+
+        gridLayout_3->addWidget(windowSizeCombo, 0, 0, 1, 1);
+
+
+        verticalLayout_3->addWidget(groupBox_2);
+
+        groupBox_3 = new QGroupBox(groupBox);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        gridLayout_4 = new QGridLayout(groupBox_3);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        parameterPSpinner = new QDoubleSpinBox(groupBox_3);
+        parameterPSpinner->setObjectName(QString::fromUtf8("parameterPSpinner"));
+        parameterPSpinner->setMaximum(1);
+        parameterPSpinner->setSingleStep(0.1);
+
+        gridLayout_4->addWidget(parameterPSpinner, 0, 0, 1, 1);
+
+
+        verticalLayout_3->addWidget(groupBox_3);
+
+
+        horizontalLayout_5->addWidget(groupBox);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 600, 27));
+        menuBar->setGeometry(QRect(0, 0, 739, 25));
         menuPlik = new QMenu(menuBar);
         menuPlik->setObjectName(QString::fromUtf8("menuPlik"));
         menuPomoc = new QMenu(menuBar);
@@ -284,6 +333,16 @@ public:
         runAlgorithmButton->setText(QApplication::translate("MainWindow", "Dzia\305\202aj", 0, QApplication::UnicodeUTF8));
         openImage->setText(QApplication::translate("MainWindow", "Otw\303\263rz", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("MainWindow", "Zapisz", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Parametry", 0, QApplication::UnicodeUTF8));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Rozmiar okna", 0, QApplication::UnicodeUTF8));
+        windowSizeCombo->clear();
+        windowSizeCombo->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "3x3", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "5x5", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "7x7", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "9x9", 0, QApplication::UnicodeUTF8)
+        );
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Parametr p", 0, QApplication::UnicodeUTF8));
         menuPlik->setTitle(QApplication::translate("MainWindow", "Plik", 0, QApplication::UnicodeUTF8));
         menuPomoc->setTitle(QApplication::translate("MainWindow", "Pomoc", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

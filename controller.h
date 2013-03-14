@@ -10,8 +10,8 @@ class Controller
 public:
     Controller();
     // Zwraca NULL w przypadku niepowodzenia
-    QImage* median(QImage *oldImg);
-    QImage* adaptMedian(QImage *oldImg);
+    QImage* median(QImage *oldImg, int windowSize, double parameter);
+    QImage* adaptMedian(QImage *oldImg, int windowSize);
 
 private:
     static bool sortRgb(QRgb a, QRgb b);
