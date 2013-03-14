@@ -23,8 +23,6 @@ private:
     QRgb adaptivePixel(QImage *original, int x, int y, int windowSize, int maxWindowSize);
     // Komparator do sortowania listy pikseli
     static bool adaptiveComparator( QRgb first, QRgb second);
-    // Wypełnia granice nowego obrazka pikselami ze starego obrazka
-    void fillBorders(QImage *oldImg, QImage *newImg, int border);
 };
 
 #endif // CONTROLLER_H
