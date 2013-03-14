@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->runAlgorithmButton->setEnabled(false);
     ui->actionSaveResult->setEnabled(false);
     ui->actionRunAlgorithm->setEnabled(false);
-    ui->parameterPSpinner->setEnabled(false);
+    ui->parameterPSpinner->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -105,10 +105,10 @@ void MainWindow::algorithmChanged(){
     if (ui->algorithmsCombo->currentIndex() != -1){
         switch (ui->algorithmsCombo->currentIndex()) {
         case 0:
-            ui->parameterPSpinner->setEnabled(false);
+            ui->parameterPSpinner->setEnabled(true);
             break;
         case 1:
-            ui->parameterPSpinner->setEnabled(true);
+            ui->parameterPSpinner->setEnabled(false);
             break;
         }
     }
