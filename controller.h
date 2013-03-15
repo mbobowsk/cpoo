@@ -16,7 +16,7 @@ public:
 private:
     static bool sortRgb(QRgb a, QRgb b);
     // Oblicza sumę odległości piksela o podanym indeksie
-    int countDst(std::vector<unsigned>& pixels, int index);
+    int countDst(std::vector<unsigned>& pixels, int index, double p);
     // Obicza gługość wektora trzech  wymiarów (RGB)
     static double countLength(QRgb pixel);
     // Oblicza wartość zadanego pixela przy określonym rozmiarze okna

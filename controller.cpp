@@ -11,8 +11,6 @@ Controller::Controller()
 // Filtracja medianowa zwykła
 QImage* Controller::median(QImage *oldImg, int windowSize, double parameter) {
     if ( oldImg->isGrayscale() ) {
-        // TODO: remove debug/////////////////////////////////////////////////////
-        qDebug() << "Grayscale";
         QImage tmp = oldImg->convertToFormat(QImage::Format_RGB32);
         oldImg = &tmp;
     }
@@ -23,8 +21,6 @@ QImage* Controller::median(QImage *oldImg, int windowSize, double parameter) {
     int width = oldImg->width();
     // sparametryzować
     int size = windowSize;
-    // Liczba pikseli na obwodzie nie brana pod uwagę
-    // jak również połowa rozmiaru okna analizy
     int border = size/2;
 
     for ( int x = 0; x != width; ++x ) {
@@ -41,7 +37,7 @@ QImage* Controller::median(QImage *oldImg, int windowSize, double parameter) {
             // Wartości sumy odległości od pozostałych pikseli
             std::vector<int> distance;
             for ( unsigned i = 0; i != pixels.size(); ++i )
-                distance.push_back(countDst(pixels,i));
+                distance.push_back(countDst(pixels,i,parameter));
             // Wyszukiwanie indeksu najmniejszego elementu
             int lowIndex = 0;
             for ( unsigned i = 1; i != distance.size(); ++i ) {
@@ -58,8 +54,6 @@ QImage* Controller::median(QImage *oldImg, int windowSize, double parameter) {
 // Adaptacyjna filtracja medianowa
 QImage* Controller::adaptMedian(QImage *oldImg, int windowSize) {
     if ( oldImg->isGrayscale() ) {
-        // TODO: remove debug/////////////////////////////////////////////////////
-        qDebug() << "Grayscale";
         QImage tmp = oldImg->convertToFormat(QImage::Format_RGB32);
         oldImg = &tmp;
     }
@@ -141,17 +135,32 @@ bool Controller::adaptiveComparator(const QRgb first, const QRgb second){
     return (firstLength < secondLength);
 }
 
-int Controller::countDst(std::vector<unsigned>& pixels, int index) {
-    int ret = 0;
+int Controller::countDst(std::vector<unsigned>& pixels, int index, double p) {
+    // Odległość wg miary euklidesowej
+    int distance = 0;
     for ( int i = 0; i != pixels.size(); ++i ) {
         if ( i == index )
             continue;
         // Miara Euklidesowa
-        ret += sqrt(pow(qRed(pixels[i])-qRed(pixels[index]),2) +
+        distance += sqrt(pow(qRed(pixels[i])-qRed(pixels[index]),2) +
                     pow(qBlue(pixels[i])-qBlue(pixels[index]),2) +
                     pow(qGreen(pixels[i])-qGreen(pixels[index]),2));
     }
-    return ret;
+
+    // Odległość kątowa
+    double angleDistance = 0;
+    for ( int i = 0; i != pixels.size(); ++i ) {
+        if ( i == index )
+            continue;
+        // Miara kątowa
+        double licznik = qRed(pixels[i])*qRed(pixels[index]) +
+                                           qGreen(pixels[i])*qGreen(pixels[index]) +
+                                           qBlue(pixels[i])*qBlue(pixels[index]);
+        double mianownik = countLength(pixels[i]) * countLength(pixels[index]);
+        angleDistance += 1/cos(licznik/mianownik);
+    }
+
+    return (pow(distance,1-p) + pow(angleDistance,p));
 }
 
 double Controller::countLength(QRgb pixel) {
