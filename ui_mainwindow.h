@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 14 21:35:59 2013
+** Created: Fri Mar 15 14:21:29 2013
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -333,7 +333,7 @@ public:
         runAlgorithmButton->setText(QApplication::translate("MainWindow", "Dzia\305\202aj", 0, QApplication::UnicodeUTF8));
         openImage->setText(QApplication::translate("MainWindow", "Otw\303\263rz", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("MainWindow", "Zapisz", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Parametry", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Parametry:", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Rozmiar okna", 0, QApplication::UnicodeUTF8));
         windowSizeCombo->clear();
         windowSizeCombo->insertItems(0, QStringList()

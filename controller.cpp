@@ -157,10 +157,11 @@ int Controller::countDst(std::vector<unsigned>& pixels, int index, double p) {
                                            qGreen(pixels[i])*qGreen(pixels[index]) +
                                            qBlue(pixels[i])*qBlue(pixels[index]);
         double mianownik = countLength(pixels[i]) * countLength(pixels[index]);
-        angleDistance += 1/cos(licznik/mianownik);
+        angleDistance += acos(licznik/mianownik);
     }
+    //qDebug()<<pow(distance,1-p)<<"*"<<pow(angleDistance,p);
 
-    return (pow(distance,1-p) + pow(angleDistance,p));
+    return (pow(distance,1-p) * pow(angleDistance,p));
 }
 
 double Controller::countLength(QRgb pixel) {
