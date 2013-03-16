@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt,oneside,notitlepage,onecolumn]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+
+\usepackage[OT4]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{indentfirst}
+\usepackage{graphics}
+
+\usepackage[dvips]{hyperref}
+
+\author{Michał Bobowski, Andrzej Dudziec}
+\date{2013-03-16}
+\title{Wektorowa filtracja medianowa - dokumentacja}
+
+\begin{document}
+  \maketitle
+\section{Usuwanie szumu z obrazów}
+Typowe metody akwizycji obrazów (np. matryca Bayera w aparacie fotograficznym) nie są odporne na pojawiające się losowo zakłócenia.
+Implikuje to konieczność opracowywania algorytmów filtracji dolnoprzepustowej, czyli 'odszumiania' obrazów.
+
+Najprostsze filtry opierające się na operacji splotu przestrzennego (konwolucji) posiadają znaczącą wadę, objawiającą się w rozmywaniu krawędzi obiektów występujących w obrazie.
+Przyczyną tego zjawiska jest fakt, że natura szumu i krawędzi jest do siebie bardzo zbliżona – są to gwałtowne zmiany wartości pikseli, reprezentowane w widmie Fouriera jako składowe wysokoczęstotliwościowe.
+Filtracja medianowa jest prostym sposobem na usunięcie szumu z obrazu, bez znaczącego obniżenia jakości krawędzi.
+Dla każdego piksela wykonywane jest sortowanie wartości pikseli z sąsiedztwa, a element środkowy tego zbioru staje się nową wartością dla rozpatrywanych współrzędnych.
+
+\section{Wektorowa filtracja medianowa}
+Wektorowa filtracja medianowa jest rozwinięciem najprostszej wersji filtru dla obrazów barwnych.
+Pikselem wstawianym do obrazu wynikowego nie jest w tym przypadku środkowy element okna analizy, ale piksel najmniej odległy od pozostałych.
+
+Sąsiedztwo pomiędzy punktami może być zdefiniowane na różne sposoby. 
+W naszej aplikacji zastosowaliśmy sąsiedztwo euklidesowe, czyli pierwiastek z sumy kwadratów różnic poszczególnych składowych.
+
+\section{Adaptacyjna filtracja medianowa}
+Pomimo stosunkowo niewielkich zniekształceń krawędzi, filtracja medianowa wprowadza pewną stratę informacji na obszarach nie będących zakłóceniami.
+Adaptacyjny filtr medianowy ogranicza działanie filtru jedynie do pikseli, które znacznie różnią się od sąsiadów, a co za tym idzie z dużym prawdopodobieństwem są zakłóceniami.
+
+Szczegółowy opis algorytmu:
+\begin{enumerate}
+ \item Zrób coś.
+ \item A potem coś jeszcze.
+ \item I delektuj się wynikiem.
+\end{enumerate}
+
+
+\section{Uogólniona filtracja medianowa}
+
+\section{Wyniki testów i wnioski}
+\subsection{Test 1}
+\subsection{Test 2}
+\subsection{Test 3}
+\subsection{Test 4}
+\subsection{Test 5}
+
+\end{document}

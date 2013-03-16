@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt,oneside,notitlepage,onecolumn]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+
+\usepackage[OT4]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{indentfirst}
+\usepackage{graphics}
+
+\usepackage[dvips]{hyperref}
+
+\author{Michał Bobowski}
+\date{2011-10-31}
+\title{Dokumentacja do projektu AAL ``Trójkąt''}
+
+\begin{document}
+  \maketitle
+\section{Treść problemu}
+W układzie współrzędnych XOY znajduje się n punktów. Każdy punkt ma przypisaną wagę będącą liczbą całkowitą.
+Należy wybrać takie 3 spośród danych punktów, aby trójkąt o wierzchołkach w tych trzech punktach pokrywał punkty o maksymalnej łącznej wadze.
+
+\section{Położenie punktu wewnątrz trójkąta}
+Operacją podstawową dla problemu jest sprawdzenie czy pojedynczy punkt leży wewnątrz trójkąta. W opisanym niżej algorytmie czas wykonania tej operacji może
+się różnić dla różnych położeń punktów, ale w dostatecznie dużej skali nie jest to zauważalne.
+
+Rozważmy sytuację przedstawioną poniżej - chcemy sprawdzić czy punkt p należy do trójkąta ABC. Aby to stwierdzić należy dla każdego boku wprowadzić pojęcie
+strony zewnętrznej i wewnętrznej, tak jak na rysunku zrobiono to dla boku AB. Punkt p leży wewnątrz trójkąta ABC wtedy i tylko wtedy gdy leży po 
+wewnętrznej stronie wszystkich jego boków.
+
+Sprawdzenie położenia punktu rozpoczyna się od obliczenia iloczynu wektorowego wektora pokrywającego bok oraz wektora łączącego wierzchołek tego boku z punktem, 
+czyli w naszym przypadku \overrightarrow{AB} x \overrightarrow{Ap}. Wynikiem tej operacji jest wektor ortogonalny do obydwu mnożonych wektorów.
+
+Kluczowym stwierdzeniem jest to, że wszystkie wektory ze strony wewnętrznej mają taki sam znak składowej oznaczającej trzeci wymiar tzn. wszystkie ``wchodzą'' w
+kartkę albo z niej ``wychodzą''. Porównując tę składową z odpowiednią częścią wyniku mnożenia \overrightarrow{AB} x \overrightarrow{AC} możemy szybko stwierdzić
+gdzie leży punkt p względem boku AB.
+\begin{figure}[h]
+\includegraphics[bb=0 0 921 1041, scale=0.2]{tri2.jpg}
+\caption[Opcjonalny skrócony opis do spisu obrazków]{Strona wewnętrzna i zewnętrzna dla boku AB}
+\end{figure}
+
+Iloczyn wektorowy wektorów a i b można zapisać jak obliczenie wyznacznika następującej macierzy:
+\[
+  a \times b = \left|\begin{array}{ccc}a_{1}&a_{2}&a_{3}\\b_{1}&b_{2}&a_{3}\\\overrightarrow{i}&\overrightarrow{j}&\overrightarrow{k}\end{array}\right|
+\]
+Ponieważ istotne dla nas są jedynie wyrazy w płaszczyźnie \overrightarrow{k} to po zastosowaniu rozwinięcia Laplace'a 
+oraz pominięciu pozostałych wyrazów wystarczy obliczyć następujące wyrażenie:
+\[
+  \left|\begin{array}{cc}a_{1}&a_{2}\\b{1}&b{2}\end{array}\right| \overrightarrow{k}
+\]
+
+
+\section{Rozwiązanie metodą ``brute force''}
+Najprostszym sposobem rozwiązania problemu jest sprawdzenie kolejno dla wszystkich istniejących trójkątów zawierania wszystkich punktów.
+Tworzenie trójkątów spośród n punktów to tak naprawdę wybór kombinacji trzech punktów. Dla każdego trójkąta trzeba przeprowadzić n sprawdzeń
+( w stosowanym algorytmie punkty tworzące trójkąt są sprawdzane tak samo jak wszystkie inne). Stąd wynika, że złożoność tej metody wynosi:
+\[
+ T(n) = {n \choose 3} * n = \frac{n^4-3n^3+2n^2}{6} \in O(n^4)
+\]
+
+\section{Rozwiązanie heurystyczne}
+Dla bardzo dużej liczby punktów uzyskanie rozwiązania dokładnego jest praktycznie niemożliwe. Program umożliwia w takich przypadkach skorzystanie z
+prostej heurystyki, która umożliwia znalezienie rozwiązania znacznie lepszego niż losowe, a przy korzystnym położeniu punktów nawet najlepszego.
+
+Podejście polega na obcięciu metody brute force jedynie do trójkątów złożonych z punktów o najwyższych wagach. Ilość punktów branych pod uwagę określa
+użytkownik podając parametr 'm' przy uruchomieniu programu. Im większa wartość tego parametru tym dokładniejsze obliczenia i większa złożoność. W szczególności 
+dla m = n uzyskamy rozwiązanie metodą brute force. Złożoność algorytmu wynosi:
+\[
+ T(m,n) = {m \choose 3} * n = \frac{m^3 n-3m^2 n+ 2mn}{6} \in O(m^3 n)
+\]
+
+\section{Opcje wywołania programu}
+W tej części znajduje się opis działania programu w zależności od argumentów wywołania.
+\begin{itemize}
+\item -g [liczba naturalna] [nazwa pliku wyjściowego] - program generuje do pliku dane o podanej liczbie losowych punktów
+\item -b [nazwa pliku wejściowego] - program pobiera dane o punktach z pliku i rozwiązuje problem metodą brutalną
+\item -h [liczba naturalna] [nazwa pliku wejściowego] - program pobiera dane o punktach z pliku i rozwiązuje problem algorytmem heurystycznym z podanym parametrem
+\item -bb [wartość początkowa] [wartość końcowa] [krok] - automatyczne testy algorytmu brute force dla podanych przez użytkownika wartości problemu
+\end{itemize}
+
+
+
+\end{document}
