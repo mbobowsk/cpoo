@@ -52,9 +52,55 @@ Szczegółowy opis algorytmu:
 
 \section{Wyniki testów i wnioski}
 \subsection{Test 1}
+Pierwszy obraz testowy przedstawia mocno zniszczoną fotografię.
+Niestety rozmiar zakłóceń jest tak duży, że poprawa jakości przy pomocy filtracji medianowej nie przynosi dobrych rezultatów.
+Zwiększanie maski odbija się bardzo negatywnie na zawartości informacyjnej obrazu, a filtracja adaptacyjna nie przynosi prawie żadnych rezultatów.
+
+Przykład ten pokazuje, że filtracja medianowa nie radzi sobie z dużymi ubytkami obrazu.
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{test1_final.jpg}
+\caption{Od lewej od góry: Oryginał, filtracja 3x3, filtracja 7x7, filtracja adaptacyjna.}
+\end{figure}
+
 \subsection{Test 2}
+Drugi przykład pokazuje zaszumione zdjęcie góry lodowej.
+Wyniki filtracji są znacznie lepsze niż na poprzednim zdjęciu, ponieważ natura szumu jest bardziej korzystna dla rozpatrywanej metody.
+Zakłócenia występują punktowo i są od siebie oddalone.
+
+Filtracja oknem 3x3 usuwa praktycznie wszystkie zakłócenia, chociaż powoduje zauważalne rozmycie niektórych szczegółów.
+Dobre efekty daje natomiast filtracja adaptacyjna, która usuwa większość zakłóceń, nie obniżając przy tym jakości obrazu.
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{test2_final.jpg}
+\caption{Od góry: Oryginał, filtracja 3x3, filtracja 5x5, filtracja adaptacyjna.}
+\end{figure}
+
 \subsection{Test 3}
+Przykład trzeci przedstawia bardzo silnie zaszumiony obraz.
+W tym przypadku filtracja medianowa również nie radzi sobie z zakłóceniami, ponieważ obraz praktycznie cały składa się z szumu.
+Efekty przynosi dopiero znaczne zwiększenie rozmiaru okna analizy (7x7), co z kolei rozmazuje szczegóły.
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{test3_final.png}
+\caption{Od lewej od góry: Oryginał, filtracja 3x3, filtracja 7x7, filtracja adaptacyjna.}
+\end{figure}
+
 \subsection{Test 4}
+Czwarty obraz testowy zawiera bardzo rzadkie i punktowe zakłócenia, więc podobnie jak w przypadku obrazu drugiego, efekty filtracji są bardzo dobre.
+Łatwo widoczna jest również różnica pomiędzy filtracją zwykłą i adaptacyjną.
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{test4_final.png}
+\caption{Od lewej od góry: Oryginał, filtracja 3x3, filtracja adaptacyjna.}
+\end{figure}
+
 \subsection{Test 5}
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{test5_final.JPG}
+\caption{Od lewej od góry: Oryginał, filtracja 3x3, filtracja 5x5, filtracja adaptacyjna.}
+\end{figure}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.16)  16 MAR 2013 22:31
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.16)  17 MAR 2013 11:59
 entering extended mode
  %&-line parsing enabled.
 **cpoo.tex
@@ -290,22 +290,43 @@ File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./cpoo.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<test1_final.jpg, id=51, 1204.5pt x 1746.525pt>
+File: test1_final.jpg Graphic file (type jpg)
+ <use test1_final.jpg>
+<test2_final.jpg, id=52, 696.6025pt x 1389.19pt>
+File: test2_final.jpg Graphic file (type jpg)
+ <use test2_final.jpg>
+
+LaTeX Warning: Float too large for page by 16.74278pt on input line 78.
+
+<test3_final.png, id=53, 1027.84pt x 1027.84pt>
+File: test3_final.png Graphic file (type png)
+ <use test3_final.png> [2]
+[3 <./test1_final.jpg>] [4 <./test2_final.jpg>]
+<test4_final.png, id=72, 620.3175pt x 485.815pt>
+File: test4_final.png Graphic file (type png)
+ <use test4_final.png> [5 <./test3_final.png>] <test5_final.JPG, id=79, 410.282
+8pt x 408.77719pt>
+File: test5_final.JPG Graphic file (type jpg)
+
+<use test5_final.JPG> [6 <./test4_final.png>] [7 <./test5_final.JPG>]
+(./cpoo.aux) ) 
 Here is how much of TeX's memory you used:
- 6473 strings out of 495026
- 87178 string characters out of 1181802
- 151098 words of memory out of 3000000
- 9561 multiletter control sequences out of 15000+50000
+ 6512 strings out of 495026
+ 87741 string characters out of 1181802
+ 153098 words of memory out of 3000000
+ 9582 multiletter control sequences out of 15000+50000
  7841 words of font info for 24 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
  38i,6n,45p,355b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/sh
-are/texmf-texlive/fonts/enc/dvips/pl/plrm.enc}</usr/share/texmf-texlive/fonts/t
-ype1/public/pl/plbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr12
-.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr17.pfb>
-Output written on cpoo.pdf (2 pages, 39567 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plrm.enc}</usr/share
+/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/share/texmf-texlive/fonts
+/type1/public/pl/plr12.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr1
+7.pfb>
+Output written on cpoo.pdf (7 pages, 2411317 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
