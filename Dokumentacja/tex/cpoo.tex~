@@ -50,7 +50,7 @@ Szczegółowy opis algorytmu:
 
 \section{Uogólniona filtracja medianowa}
 
-\section{Wyniki testów i wnioski}
+\section{Testowanie}
 \subsection{Test 1}
 Pierwszy obraz testowy przedstawia mocno zniszczoną fotografię.
 Niestety rozmiar zakłóceń jest tak duży, że poprawa jakości przy pomocy filtracji medianowej nie przynosi dobrych rezultatów.
@@ -80,7 +80,7 @@ Dobre efekty daje natomiast filtracja adaptacyjna, która usuwa większość zak
 \subsection{Test 3}
 Przykład trzeci przedstawia bardzo silnie zaszumiony obraz.
 W tym przypadku filtracja medianowa również nie radzi sobie z zakłóceniami, ponieważ obraz praktycznie cały składa się z szumu.
-Efekty przynosi dopiero znaczne zwiększenie rozmiaru okna analizy (7x7),
+Efekty przynosi dopiero znaczne zwiększenie rozmiaru okna analizy (7x7), co z kolei rozmazuje szczegóły.
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{test3_final.png}
@@ -88,6 +88,8 @@ Efekty przynosi dopiero znaczne zwiększenie rozmiaru okna analizy (7x7),
 \end{figure}
 
 \subsection{Test 4}
+Czwarty obraz testowy zawiera bardzo rzadkie i punktowe zakłócenia, więc podobnie jak w przypadku obrazu drugiego, efekty filtracji są bardzo dobre.
+Dobrze widoczna jest również różnica pomiędzy filtracją zwykłą i adaptacyjną.
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{test4_final.png}
@@ -95,10 +97,19 @@ Efekty przynosi dopiero znaczne zwiększenie rozmiaru okna analizy (7x7),
 \end{figure}
 
 \subsection{Test 5}
+Ostatni obraz testowy jest również silnie zaszumiony, jednak nie tak gęsto jak w przykładzie trzecim.
+Dzięki temu możliwe jest odzyskanie spójnego obrazu końcowego, choć wymaga to użycia większej maski filtru niż 3x3.
+Efekt końcowy jest widocznie rozmyty, ale z drugiej strony zwykła filtracja uśredniająca była by jeszcze bardziej destrukcyjna.
+
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{test5_final.JPG}
 \caption{Od lewej od góry: Oryginał, filtracja 3x3, filtracja 5x5, filtracja adaptacyjna.}
 \end{figure}
+
+\section{Wnioski}
+Wektorowa filtracja medianowa daje zróżnicowane efekty w zależności od natury szumu występującego w obrazie.
+Jeżeli szum znacznie wyróżnia się na tle obrazu i nie jest bardzo gęsty, to filtracja medianowa będzie działa dobrze (a na pewno lepiej niż zwykły filtr uśredniający).
+W przypadku niewielkiego zaszumienia warto rozważyć użycie filtru adaptacyjnego, który czasami znacznie zmniejsza utratę kontrastu.
 
 \end{document}
