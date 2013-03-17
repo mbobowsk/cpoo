@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.16)  17 MAR 2013 14:42
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.17)  17 MAR 2013 18:46
 entering extended mode
  %&-line parsing enabled.
 **cpoo.tex
@@ -223,63 +223,100 @@ Package hyperref Warning: Wrong driver `hdvips.def';
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count96
+)
+(/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks21
+\float@box=\box26
+\@float@everytoks=\toks22
+\@floatcapt=\box27
+)
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks23
+\c@algorithm=\count98
+)
+(/usr/share/texmf-texlive/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texmf-texlive/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count99
+\c@ALG@rem=\count100
+\c@ALG@nested=\count101
+\ALG@tlm=\skip43
+\ALG@thistlm=\skip44
+\c@ALG@Lnr=\count102
+\c@ALG@blocknr=\count103
+\c@ALG@storecount=\count104
+\c@ALG@tmpcounter=\count105
+\ALG@tmplength=\skip45
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (./cpoo.aux)
 \openout1 = `cpoo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-
-(/usr/share/texmf-texlive/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+ (/usr/share/texmf-texlive/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
 )
 (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count97
+\scratchcounter=\count106
 \scratchdimen=\dimen113
-\scratchbox=\box26
-\nofMPsegments=\count98
-\nofMParguments=\count99
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count100
+\scratchbox=\box28
+\nofMPsegments=\count107
+\nofMParguments=\count108
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count109
 \MPscratchDim=\dimen114
-\MPnumerator=\count101
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count110
+\everyMPtoPDFconversion=\toks25
 )
-Package hyperref Info: Link coloring OFF on input line 21.
+Package hyperref Info: Link coloring OFF on input line 24.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count102
+\c@section@level=\count111
 )
-LaTeX Info: Redefining \ref on input line 21.
-LaTeX Info: Redefining \pageref on input line 21.
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
  (./cpoo.out)
 (./cpoo.out)
 \@outlinefile=\write3
 \openout3 = `cpoo.out'.
 
-\AtBeginShipoutBox=\box27
+\AtBeginShipoutBox=\box29
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 23.
+(Font)              <14.4> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 23.
+(Font)              <7> on input line 26.
  (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-1.def
 File: uni-1.def 2004/10/17 UCS: Unicode data U+0100..U+01FF
 )
@@ -288,45 +325,95 @@ File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 )
 (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 42.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<test1_final.jpg, id=51, 1204.5pt x 1746.525pt>
+Underfull \hbox (badness 10000) in paragraph at lines 47--68
+
+ []
+
+[2] <test1_final.jpg, id=63, 1204.5pt x 1746.525pt>
 File: test1_final.jpg Graphic file (type jpg)
  <use test1_final.jpg>
-<test2_final.jpg, id=52, 696.6025pt x 1389.19pt>
+<test2_final.jpg, id=64, 696.6025pt x 1389.19pt>
 File: test2_final.jpg Graphic file (type jpg)
  <use test2_final.jpg>
 
-LaTeX Warning: Float too large for page by 16.74278pt on input line 78.
+LaTeX Warning: Float too large for page by 16.74278pt on input line 101.
 
-<test3_final.png, id=53, 1027.84pt x 1027.84pt>
+<test3_final.png, id=65, 1027.84pt x 1027.84pt>
 File: test3_final.png Graphic file (type png)
- <use test3_final.png> [2]
-[3 <./test1_final.jpg>] [4 <./test2_final.jpg>]
-<test4_final.png, id=72, 620.3175pt x 485.815pt>
+ <use test3_final.png>
+<test4_final.png, id=67, 620.3175pt x 485.815pt>
 File: test4_final.png Graphic file (type png)
- <use test4_final.png> [5 <./test3_final.png>] <test5_final.JPG, id=79, 410.282
-8pt x 408.77719pt>
+ <use test4_final.png> [3]
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.121 
+       <./test1_final.jpg>] [5pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.121 
+       <./test2_final.jpg>] [6pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.121 
+       <./test3_final.png>] <test5_final.JPG, id=88, 410.2828pt x 408.77719pt>
 File: test5_final.JPG Graphic file (type jpg)
 
-<use test5_final.JPG> [6 <./test4_final.png>] [7 <./test5_final.JPG>] [8]
-(./cpoo.aux) ) 
+<use test5_final.JPG> [7pdfTeX warning (ext4): destination with the same identi
+fier (name{figure.4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.137 
+       <./test4_final.png>] [8pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.137 
+       <./test5_final.JPG>] [9] (./cpoo.aux) ) 
 Here is how much of TeX's memory you used:
- 6514 strings out of 495026
- 87756 string characters out of 1181802
- 153098 words of memory out of 3000000
- 9582 multiletter control sequences out of 15000+50000
- 7841 words of font info for 24 fonts, out of 3000000 for 9000
+ 7147 strings out of 495026
+ 96687 string characters out of 1181802
+ 164055 words of memory out of 3000000
+ 10191 multiletter control sequences out of 15000+50000
+ 11711 words of font info for 36 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
  38i,6n,45p,355b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/pl/plrm.enc}</usr/share
-/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/share/texmf-texlive/fonts
-/type1/public/pl/plr12.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plr1
-7.pfb>
-Output written on cpoo.pdf (8 pages, 2413040 bytes).
+{/usr/share/texmf-texlive/fonts/e
+nc/dvips/pl/plrm.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plbx12.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/pl/plr12.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/pl/plr17.pfb>
+Output written on cpoo.pdf (9 pages, 2479316 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

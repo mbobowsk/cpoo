@@ -14,6 +14,9 @@
 
 \usepackage[dvips]{hyperref}
 
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+
 \author{Michał Bobowski, Andrzej Dudziec}
 \date{2013-03-16}
 \title{Wektorowa filtracja medianowa - dokumentacja}
@@ -34,18 +37,41 @@ Wektorowa filtracja medianowa jest rozwinięciem najprostszej wersji filtru dla 
 Pikselem wstawianym do obrazu wynikowego nie jest w tym przypadku środkowy element okna analizy, ale piksel najmniej odległy od pozostałych.
 
 Sąsiedztwo pomiędzy punktami może być zdefiniowane na różne sposoby. 
-W naszej aplikacji zastosowaliśmy sąsiedztwo euklidesowe, czyli pierwiastek z sumy kwadratów różnic poszczególnych składowych.
+W naszej aplikacji odległość między wektorami zdefiniowana jest jako iloczyn odległości euklidesowej i kątowej, z parametrem sterujacym wpływem każdej z składowych.\\
+Szukany wektor to ten, który posiada najmniejszą wartość:\\
+$$(R_{e})^{1-p} * (R_{a})^p$$
+Gdzie $R_{e}$ to suma sąsiedztwa euklidesowego, czyli pierwiastków z sum kwadratów różnic poszczególnych składowych\\
+i $R_{a}$ to suma sąsiedztwa kątowego, czyli $\theta = \mathrm{arccos}\; \frac{\mathbf a \cdot \mathbf b}{|\mathbf a| |\mathbf b|}$ ($\mathbf a , \mathbf b$ to porównywane wektory).
 
 \section{Adaptacyjna filtracja medianowa}
 Pomimo stosunkowo niewielkich zniekształceń krawędzi, filtracja medianowa wprowadza pewną stratę informacji na obszarach nie będących zakłóceniami.
-Adaptacyjny filtr medianowy ogranicza działanie filtru jedynie do pikseli, które znacznie różnią się od sąsiadów, a co za tym idzie z dużym prawdopodobieństwem są zakłóceniami.
-
-Szczegółowy opis algorytmu:
-\begin{enumerate}
- \item Zrób coś.
- \item A potem coś jeszcze.
- \item I delektuj się wynikiem.
-\end{enumerate}
+Adaptacyjny filtr medianowy dostosowuje rozmiar okna analizy do sytuacji panującej w jego wnętrzu w taki sposób, aby możliwie dokładnie usuwać zakłócenia bez zniekształcania cennych informacji, które chcemy zachować.
+\\\\Szczegółowy opis algorytmu:
+\begin{algorithm}[H]
+\begin{algorithmic}
+  \item Przeanalizuj piksele w oknie. Znajdź wrtości: minimalną (fmin), maksymalną (fmax), medianową (fmed).\\
+  \If{fmed jest różne od pozostałych}
+    \If{piksel centralny jest różny od pozostałych}\\
+	\hspace{\algorithmicindent}\hspace{\algorithmicindent}zwróć wartość piksela centralnego
+    \Else
+	\\\hspace{\algorithmicindent}\hspace{\algorithmicindent}zwróć fmed
+    \EndIf
+  \Else
+    \\\hspace{\algorithmicindent}zwiększ rozmiar okna analizy
+    \If{nowy rozmiar nie przekracza limitu (np 9x9)}\\
+	\hspace{\algorithmicindent}\hspace{\algorithmicindent}uruchom algorytm z nowym oknem
+    \Else
+	\\\hspace{\algorithmicindent}\hspace{\algorithmicindent}zwróć fmed
+    \EndIf
+  \EndIf
+	\end{algorithmic}
+\end{algorithm}
+Prosta analiza przedstawionego algorytmu pozwala zrozumieć zasadę i cel jego działania. 
+W pierwszym warunku sprawdzane jest, czy medianowy piksel nie jest równy co do wartości którejś ze skrajności. 
+Taka sytuacja miałaby miejsce w przypadku, gdy ponad połowa okna analizy jest zajęta przez jednolity obszar. 
+W tym przypadku rozmiar okna jest zwiększany, a algorytm ponownie uruchomiony rekurencyjnie.\\
+Drugi warunek służy do sprawdzenia (na podobnej zasadzie co pierwszy), czy na pewno należy zamienić analizowany piksel przez znalezioną wartość fmed.\\
+Trzeci warunek jest ograniczeniem maksymalnego rozmiaru okna.
 
 \section{Testowanie}
 \subsection{Test 1}
